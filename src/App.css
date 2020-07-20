@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #303030;
+  color: #e7e7e7;
 }
 
 .App-logo {
@@ -38,7 +40,7 @@
 }
 
 
-.sundayClass {
+.react-calendar__tile {
   padding: 0;
   margin: 0;
   padding-top: 20px;
@@ -49,13 +51,15 @@
   position: relative;
 }
 
-.sundayClass abbr {
+.react-calendar__tile abbr {
   position: absolute;
   top: 5px;
   left: 5px;
+  color: white;
+  font-size: 11px;
 }
 
-.sundayClass p {
+.react-calendar__tile p {
   background-color: lightblue;
   border-top: 1px solid blue;
   border-bottom: 1px solid blue;
@@ -66,4 +70,36 @@
   white-space: nowrap;
   margin: 4px 0px;
   padding: 0px;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
+.react-calendar__month-view__weekdays * {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.monthView.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+}
+
+.react-calendar__tile {
+  background-color: #303030;
+  border: 1px solid white;
+}
+
+.react-calendar__tile:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
 }
