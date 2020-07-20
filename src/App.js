@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Calendar from 'react-calendar';
 
 function App() {
+
+  const sundayText = <><p><span>It's sunday!!!</span><span>Other stuff!</span></p><p><span>It's sunday!!!</span><span>Other stuff!</span></p><p><span>It's sunday!!!</span><span>Other stuff!</span></p><p><span>It's sunday!!!</span><span>Other stuff!</span></p></>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Calendar 
+      showFixedNumberOfWeeks={true} 
+      tileContent={({date}) =>- date.getDay() === 0 ? sundayText : null} 
+      tileClassName={({date}) => date.getDay() === 0 ? 'sundayClass' : null} />
     </div>
   );
 }
