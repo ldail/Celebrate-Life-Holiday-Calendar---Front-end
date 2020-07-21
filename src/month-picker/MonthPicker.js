@@ -48,7 +48,7 @@ const MonthPicker = ({hideMonthPicker, handleSubmit, modalHandler}) => {
 
   return (
     <div className="backgroundOpacity" onClick={hideMonthPicker}>
-    <form className="MonthPicker" onSubmit={submitSelection}>
+    <form className="MonthPicker" onSubmit={submitSelection} onClick={(e) => e.stopPropagation()}>
       <div className="yearSelection">
         <button type="button" onClick={subtractYear}>{`<`}</button>
         <span className="viewingYear">{viewingYear}</span>

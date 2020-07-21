@@ -5,6 +5,8 @@ import Calendar from 'react-calendar';
 import moment from 'moment';
 import MonthPicker from './month-picker/MonthPicker';
 
+import {ReactComponent as HamburgerMenu} from './assets/hamburger-menu.svg';
+
 function App() {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedYear, setSelectedYear] = useState(moment().year());
@@ -18,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="monthView header">
-        <p>`==`</p>
+        <HamburgerMenu className="navMenuButton" />
       <div>
         <span className="viewingMonthAndYear" onClick={() => setShowDatePicker(!showDatePicker)}>{selectedMonth} {selectedYear}</span>
         <h1 className="appTitle">celebrate life!</h1>

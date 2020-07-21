@@ -15,7 +15,9 @@
   position: fixed;
   display: flex;
   top: 30px;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
+  min-width: 375px;
   flex-direction: column;
   border: 1px solid white;
   background-color: #282c34;
@@ -44,4 +46,5 @@
 
 .monthOption:hover {
   cursor: pointer;
+  background-color: #434850;
 }

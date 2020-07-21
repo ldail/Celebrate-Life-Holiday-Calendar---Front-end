@@ -39,6 +39,11 @@
   }
 }
 
+.navMenuButton {
+  width: 20px;
+  height: 20px;
+}
+
 
 .react-calendar__tile {
   padding: 0;
