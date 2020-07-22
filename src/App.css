@@ -1,3 +1,7 @@
+body {
+  background-color: #303030;
+}
+
 .App, .DayView {
   text-align: center;
   background-color: #303030;
@@ -49,6 +53,13 @@ ul {
   height: 20px;
 }
 
+.navMenuButton:hover {
+  cursor: pointer;
+}
+
+.viewingMonthAndYear:hover {
+  cursor: pointer;
+}
 
 .react-calendar__tile {
   padding: 0;

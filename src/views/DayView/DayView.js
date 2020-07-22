@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './DayView.css';
 
-const DayView = () => {
+const DayView = ({initialDay}) => {
+  const [viewingDay, setViewingDay] = useState(1);
+
+  useEffect(() => {
+    setViewingDay(parseInt(initialDay));
+  }, []);
+
   return (
     <div className="DayView">
       <ul className="events">
@@ -98,7 +104,7 @@ const DayView = () => {
           <li>*</li>
           <li>*</li>
           <li>*</li>
-          <li>5</li>
+          <li onClick={() => setViewingDay(5)}>5</li>
           <li>*</li>
           <li>*</li>
           <li>*</li>
