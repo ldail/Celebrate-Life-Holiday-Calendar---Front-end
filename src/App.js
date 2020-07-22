@@ -22,7 +22,7 @@ function App() {
       <header className="monthView header">
         <HamburgerMenu className="navMenuButton" />
       <div>
-        <span className="viewingMonthAndYear" onClick={() => setShowDatePicker(!showDatePicker)}>{selectedMonth} {selectedYear}</span>
+        <h2 className="viewingMonthAndYear" onClick={() => setShowDatePicker(!showDatePicker)}>{selectedMonth} {selectedYear}</h2>
         <h1 className="appTitle">celebrate life!</h1>
       </div>
       {showDatePicker && 
