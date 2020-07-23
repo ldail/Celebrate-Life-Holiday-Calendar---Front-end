@@ -2,7 +2,8 @@ import React from 'react';
 import './IndividualEvent.css';
 import {ReactComponent as HamburgerMenu} from '../../assets/hamburger-menu.svg';
 
-const IndividualEvent = () => {
+const IndividualEvent = ({currentEventId}) => {
+  console.log(currentEventId);
   return (
     <div className="IndividualEvent">
       <div className="fixedHeader">

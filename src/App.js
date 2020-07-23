@@ -16,6 +16,7 @@ function App() {
   const [selectedMonth, setSelectedMonth] = useState(moment().format('MMMM'));
   const [currentMonthEvents, setCurrentMonthEvents] = useState({});
   const [displayHeader, setDisplayHeader] = useState(true);
+  const [currentEventId, setCurrentEventId] = useState(null);
 
   useEffect(() => {
     const currentYearEvents = FAKE__EVENT_DATES[selectedYear] || {};
@@ -64,11 +65,10 @@ function App() {
     return viewingData;
   }
 
-  const showIndividualEvent = (day) => {
+  const showIndividualEvent = (eventId) => {
+    setCurrentEventId(eventId);
     setCurrentView({view: VIEWS.EVENT});
     setDisplayHeader(false);
-    const date = [selectedYear, selectedMonth, day]
-    console.log(date);
   }
 
   return (
@@ -101,7 +101,8 @@ function App() {
         />
       }
       {currentView.view === VIEWS.EVENT &&
-        <IndividualEvent />
+        <IndividualEvent 
+          currentEventId={currentEventId} />
       }
     </main>
     </div>
