@@ -5,10 +5,8 @@ import moment from 'moment';
 import {VIEWS} from '../assets/constants';
 
 
-const Header = ({currentView, setCurrentView}) => {
+const Header = ({selectedYear, setSelectedYear, selectedMonth, setSelectedMonth, currentView, setCurrentView}) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [selectedYear, setSelectedYear] = useState(moment().year());
-  const [selectedMonth, setSelectedMonth] = useState(moment().format('MMMM'));
 
   const handleSubmit = (year, month) => {
     setSelectedMonth(month);

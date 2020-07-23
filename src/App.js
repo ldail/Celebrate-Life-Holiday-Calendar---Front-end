@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './reset.css';
 import './App.css';
 import Calendar from 'react-calendar';
+import moment from 'moment';
 
 import Header from './components/Header';
 import {VIEWS} from './assets/constants';
@@ -9,6 +10,8 @@ import DayView from './views/DayView/DayView';
 
 function App() {
   const [currentView, setCurrentView] = useState({view: VIEWS.MONTH});
+  const [selectedYear, setSelectedYear] = useState(moment().year());
+  const [selectedMonth, setSelectedMonth] = useState(moment().format('MMMM'));
 
   const setDayView = (date) => {
     const day = date.toString().split(' ')[2];
@@ -21,6 +24,10 @@ function App() {
       <Header
         currentView={currentView.view}
         setCurrentView={setCurrentView}
+        selectedYear={selectedYear}
+        selectedMonth={selectedMonth}
+        setSelectedMonth={setSelectedMonth}
+        setSelectedYear={setSelectedYear}
         />
     <main>
       {currentView.view === VIEWS.MONTH && 
@@ -34,7 +41,10 @@ function App() {
       }
       {currentView.view === VIEWS.DAY &&
         <DayView
-          initialDay={currentView.day} />
+          initialDay={currentView.day} 
+          selectedYear={selectedYear}
+          selectedMonth={selectedMonth}
+        />
       }
     </main>
     </div>
