@@ -17,7 +17,7 @@ export const FAKE__EVENTS = {
     countries: ['USA', 'UK', 'BEL', 'CAN', 'MEX'],
     major: true,
     recur: 'Recurrs Annually',
-    description: 'The magical Christmas holiday celebrated all over the world!',
+    description: ['The magical Christmas holiday celebrated all over the world!'],
     pictures: [
       'https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTY5MDk1ODMyOTUwNTQ4MzYy/american-christmas-traditions-gettyimages-487756624.jpg',
       'https://www.history.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTY4ODE4ODA4MzY1MDAwNDY1/christmas-gettyimages-184652817.jpg',
@@ -25,8 +25,14 @@ export const FAKE__EVENTS = {
       'https://specials-images.forbesimg.com/imageserve/5e00d95b4e2917000783c1f2/960x0.jpg?fit=scale'
     ],
     resources: [
-      'christmas.com',
-      'jesuschrist.com'
+      {
+        url: 'christmas.com',
+        title: 'Official Christmas Website'
+      },
+      {
+        url: 'jesuschrist.com',
+        title: 'Jesus Christ Sitez'
+      }
     ],
     comments: [
       {
@@ -62,7 +68,7 @@ export const FAKE__EVENTS = {
     countries: ['USA'],
     major: true,
     recur: 'Recurrs Annually',
-    description: 'The magical Christmas holiday celebrated all over the world!',
+    description: ['The magical Christmas holiday celebrated all over the world!'],
     pictures: [
       'https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTY5MDk1ODMyOTUwNTQ4MzYy/american-christmas-traditions-gettyimages-487756624.jpg',
       'https://www.history.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTY4ODE4ODA4MzY1MDAwNDY1/christmas-gettyimages-184652817.jpg',
@@ -70,8 +76,14 @@ export const FAKE__EVENTS = {
       'https://specials-images.forbesimg.com/imageserve/5e00d95b4e2917000783c1f2/960x0.jpg?fit=scale'
     ],
     resources: [
-      'christmas.com',
-      'jesuschrist.com'
+      {
+        url: 'christmas.com',
+        title: 'Official Christmas Website'
+      },
+      {
+        url: 'jesuschrist.com',
+        title: 'Jesus Christ Sitez'
+      }
     ],
     comments: [
       {

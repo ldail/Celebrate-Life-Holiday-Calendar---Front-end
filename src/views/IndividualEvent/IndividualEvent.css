@@ -127,6 +127,10 @@
   border-bottom: 1px solid white;
 }
 
+.IndividualEvent .commentList li:not(:first-of-type) {
+  margin-top: 20px;
+}
+
 .commentList li .postInfo {
   display: flex;
   justify-content: space-between;
