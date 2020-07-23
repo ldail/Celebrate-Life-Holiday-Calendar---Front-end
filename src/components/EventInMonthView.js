@@ -1,4 +1,5 @@
 import React from 'react';
+import './EventsInMonthView.css';
 
 const EventInMonthView = ({major, name, countries}) => {
   return (

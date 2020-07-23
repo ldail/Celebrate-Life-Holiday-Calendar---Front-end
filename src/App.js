@@ -36,13 +36,11 @@ function App() {
 
   const createDayEventList = (date) => {
     let viewingDay = date.toString().split(' ')[2];
-    console.log(viewingDay, typeof viewingDay, viewingDay[0]);
     if (viewingDay[0] === '0') {
       viewingDay = viewingDay.slice(1);
     }
     const viewingMonth = date.toString().split(' ')[1];
     let eventsOnDay = currentMonthEvents[viewingDay];
-    console.log(eventsOnDay);
     const viewingMonthFormat = moment(viewingMonth, 'MMM').format('MMMM');
     if (viewingMonthFormat !== selectedMonth) {
       let monthEvents = eventsForMonth(viewingMonthFormat);

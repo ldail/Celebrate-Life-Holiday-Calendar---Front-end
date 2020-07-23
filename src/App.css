@@ -80,10 +80,9 @@ ul {
   font-size: 11px;
 }
 
-.react-calendar__tile p {
-  background-color: lightblue;
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
+.react-calendar__tile .monthEvent {
+  background-color: #e5e5e5;
+  color: black;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -91,8 +90,14 @@ ul {
   white-space: nowrap;
   margin: 4px 0px;
   padding: 0px;
-  font-size: 12px;
+  font-size: 11px;
   padding-left: 2px;
+  height: 35px;
+}
+
+.react-calendar__tile .monthEvent.monthViewMajorHoliday {
+  background-color: #b7e0ff;
+  font-weight: bold;
 }
 
 .react-calendar__month-view__weekdays * {
