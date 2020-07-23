@@ -52,7 +52,7 @@ export const FAKE__EVENTS = {
   7: {
     name: 'FakeADay',
     month: 7, 
-    day: 12,
+    day: 25,
     countries: ['JP', 'BEL'],
     major: true
   },
@@ -72,9 +72,21 @@ export const FAKE__EVENTS = {
 
 export const FAKE__EVENT_DATES = {
     2020: {
-      JAN: [3],
-      JUL: [4,5,6,7,8],
-      AUG: [9],
-      DEC: [1, 2]
+      JAN: {
+        1: [3]
+      },
+      JUL: {
+        4: [4],
+        14: [8],
+        18: [5],
+        25: [6, 7]
+      },
+      AUG: {
+        3: [9]
+      },
+      DEC: {
+        25: [1],
+        31: [2]
+      }
     }
 }

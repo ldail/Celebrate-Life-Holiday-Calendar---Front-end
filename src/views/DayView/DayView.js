@@ -1,29 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import './DayView.css';
 import moment from 'moment';
+import { FAKE__EVENT_DATES, FAKE__EVENTS } from '../../assets/constants';
 
 const DayView = ({selectedMonth, selectedYear, initialDay}) => {
   const [viewingDay, setViewingDay] = useState(1);
+  const [currentMonthEvents, setCurrentMonthEvents] = useState({});
 
   useEffect(() => {
     setViewingDay(parseInt(initialDay));
   }, []);
 
+  useEffect(() => {
+    const currentYearEvents = FAKE__EVENT_DATES[selectedYear] || {};
+    const correctedMonth = moment(selectedMonth, 'MMMM').format('MMM').toUpperCase();
+    const currentMonthEventsFound = currentYearEvents[correctedMonth] || {};
+    setCurrentMonthEvents(currentMonthEventsFound);
+  }, [selectedMonth, selectedYear])
+
 
   const findDayOfWeek = (day) => {
     const dateString = `${selectedYear}-${selectedMonth}-${day}`;
-    const momentDay = moment(dateString, 'YYYY-MMMM-D');
-    const momentDay2 = momentDay.format('ddd')
-    console.log(dateString);
-    console.log(momentDay);
-    console.log(momentDay2);
-    return momentDay2;
+    const dayOfWeek = moment(dateString, 'YYYY-MMMM-D').format('ddd');
+    return dayOfWeek;
+  }
+
+  const findEventsForDay = (day) => {
+    const currentDayEvents = currentMonthEvents[day] || [];
+    return currentDayEvents;
+  }
+
+  const createEventsForDay = (day) => {
+    const currentDayEvents = findEventsForDay(day);
+    console.log(currentDayEvents);
+    const viewEventData = [];
+    for (let i = 0; i < currentDayEvents.length; i++) {
+      const currentEventId = currentDayEvents[i];
+      const {name, countries, major} = FAKE__EVENTS[currentEventId];
+      viewEventData.push(
+        <li className={`calendarEventItem ${major ? 'majorHoliday' : ''}`}>
+                <span>{name}</span>
+                <ul className="calendarEventCountryFlagList">
+                  {countries.map(country => <li className="calendarEventCountryFlagItem">{`(${country})`}</li>)}
+                </ul>
+              </li>
+      );
+    }
+  return viewEventData;
   }
 
   const createDays = () => {
     const daysInMonth = moment(`${selectedYear}-${selectedMonth}`, 'YYYY-MM').daysInMonth();
     const daysToDisplay = [];
     for (let i = 0; i < daysInMonth; i++) {
+      const eventsForDay = findEventsForDay(i + 1);
+      if (eventsForDay.length > 0) {
       daysToDisplay.push(
          <li className="eventDay">
           <div className="date">
@@ -34,41 +65,11 @@ const DayView = ({selectedMonth, selectedYear, initialDay}) => {
             </span>
           </div>
             <ul className="calendarEventList">
-              <li className="calendarEventItem majorHoliday">
-                <span>Chuseok Day 1</span>
-                <ul className="calendarEventCountryFlagList">
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                </ul>
-              </li>
-              <li className="calendarEventItem">
-                <span>Chuseok Day 1</span>
-                <ul className="calendarEventCountryFlagList">
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                </ul>
-              </li>
-              <li className="calendarEventItem">
-                <span>Chuseok Day 1</span>
-                <ul className="calendarEventCountryFlagList">
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                </ul>
-              </li>
-              <li className="calendarEventItem majorHoliday">
-                <span>Chuseok Day 1</span>
-                <ul className="calendarEventCountryFlagList">
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                  <li className="calendarEventCountryFlagItem">{`(---)`}</li>
-                </ul>
-              </li>
+            {createEventsForDay(i + 1)}
             </ul>
           </li>)
     }
+  }
     return daysToDisplay;
   }
 
