@@ -32,7 +32,6 @@ const DayView = ({selectedMonth, selectedYear, initialDay}) => {
 
   const createEventsForDay = (day) => {
     const currentDayEvents = findEventsForDay(day);
-    console.log(currentDayEvents);
     const viewEventData = [];
     for (let i = 0; i < currentDayEvents.length; i++) {
       const currentEventId = currentDayEvents[i];
