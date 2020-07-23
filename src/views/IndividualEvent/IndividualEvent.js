@@ -7,6 +7,11 @@ import moment from 'moment';
 const IndividualEvent = ({currentEventId = null}) => {
   const eventInfo = FAKE__EVENTS[currentEventId] || {};
   const {name, month, day, countries, major, recur, description, pictures, resources, comments} = eventInfo;
+
+  const createDuckDuckGoSearchString = () => {
+    let splitName = name.split(' ').join('+');
+    return `http://duckduckgo.com/?q=${splitName}`;
+  }
   return (
     <div className="IndividualEvent">
       <div className="fixedHeader">
@@ -19,7 +24,7 @@ const IndividualEvent = ({currentEventId = null}) => {
           <div className="activityButtons">
             <div className="activeButtons">
               <button className="addToCalendarButton">-star-</button>
-              <button>-ddg-</button>
+              <a href={createDuckDuckGoSearchString()} target="_blank" rel="noopener noreferrer">-ddg-</a>
               <button>-share-</button>
             </div>
             <button className="suggestChangeButton">suggest change</button>
@@ -58,7 +63,7 @@ const IndividualEvent = ({currentEventId = null}) => {
         <section>
           <h4>Resources</h4>
           <ul className="indentedBackground resourceList">
-            {resources.map(resourceItem => <li><a href={resourceItem.url}>{resourceItem.title}</a></li>)}
+            {resources.map(resourceItem => <li><a href={resourceItem.url} target="_blank" rel="noopener noreferrer">{resourceItem.title}</a></li>)}
           </ul>
         </section>
 
