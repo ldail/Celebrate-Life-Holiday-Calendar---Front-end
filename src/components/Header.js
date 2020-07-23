@@ -5,7 +5,7 @@ import moment from 'moment';
 import {VIEWS} from '../assets/constants';
 
 
-const Header = ({selectedYear, setSelectedYear, selectedMonth, setSelectedMonth, currentView, setCurrentView}) => {
+const Header = ({displayHeader, selectedYear, setSelectedYear, selectedMonth, setSelectedMonth, currentView, setCurrentView}) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const handleSubmit = (year, month) => {
@@ -22,7 +22,7 @@ const Header = ({selectedYear, setSelectedYear, selectedMonth, setSelectedMonth,
     }
   }
 
-
+  if (displayHeader) {
   return (
 <header className="monthView header">
         <HamburgerMenu className="navMenuButton" />
@@ -41,6 +41,10 @@ const Header = ({selectedYear, setSelectedYear, selectedMonth, setSelectedMonth,
       </div>
     </header>
   );
+    }
+    else {
+      return null;
+    }
 };
 
 export default Header;

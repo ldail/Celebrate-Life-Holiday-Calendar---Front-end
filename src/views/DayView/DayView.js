@@ -3,7 +3,7 @@ import './DayView.css';
 import moment from 'moment';
 import { FAKE__EVENT_DATES, FAKE__EVENTS } from '../../assets/constants';
 
-const DayView = ({selectedMonth, selectedYear, initialDay}) => {
+const DayView = ({selectedMonth, showIndividualEvent, selectedYear, initialDay}) => {
   const [viewingDay, setViewingDay] = useState(1);
   const [currentMonthEvents, setCurrentMonthEvents] = useState({});
 
@@ -37,7 +37,7 @@ const DayView = ({selectedMonth, selectedYear, initialDay}) => {
       const currentEventId = currentDayEvents[i];
       const {name, countries, major} = FAKE__EVENTS[currentEventId];
       viewEventData.push(
-        <li className={`calendarEventItem ${major ? 'majorHoliday' : ''}`}>
+        <li className={`calendarEventItem ${major ? 'majorHoliday' : ''}`} onClick={() => showIndividualEvent(currentEventId)}>
                 <span>{name}</span>
                 <ul className="calendarEventCountryFlagList">
                   {countries.map(country => <li className="calendarEventCountryFlagItem">{`(${country})`}</li>)}

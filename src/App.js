@@ -8,12 +8,14 @@ import Header from './components/Header';
 import {VIEWS, FAKE__EVENT_DATES, FAKE__EVENTS} from './assets/constants';
 import DayView from './views/DayView/DayView';
 import EventInMonthView from './components/EventInMonthView';
+import IndividualEvent from './views/IndividualEvent/IndividualEvent';
 
 function App() {
   const [currentView, setCurrentView] = useState({view: VIEWS.MONTH});
   const [selectedYear, setSelectedYear] = useState(moment().year());
   const [selectedMonth, setSelectedMonth] = useState(moment().format('MMMM'));
   const [currentMonthEvents, setCurrentMonthEvents] = useState({});
+  const [displayHeader, setDisplayHeader] = useState(true);
 
   useEffect(() => {
     const currentYearEvents = FAKE__EVENT_DATES[selectedYear] || {};
@@ -62,6 +64,13 @@ function App() {
     return viewingData;
   }
 
+  const showIndividualEvent = (day) => {
+    setCurrentView({view: VIEWS.EVENT});
+    setDisplayHeader(false);
+    const date = [selectedYear, selectedMonth, day]
+    console.log(date);
+  }
+
   return (
     <div className="App">
       <Header
@@ -71,6 +80,7 @@ function App() {
         selectedMonth={selectedMonth}
         setSelectedMonth={setSelectedMonth}
         setSelectedYear={setSelectedYear}
+        displayHeader={displayHeader}
         />
     <main>
       {currentView.view === VIEWS.MONTH && 
@@ -87,7 +97,11 @@ function App() {
           initialDay={currentView.day} 
           selectedYear={selectedYear}
           selectedMonth={selectedMonth}
+          showIndividualEvent={showIndividualEvent}
         />
+      }
+      {currentView.view === VIEWS.EVENT &&
+        <IndividualEvent />
       }
     </main>
     </div>

@@ -1,0 +1,136 @@
+.IndividualEvent { 
+  display: flex;
+  flex-direction: column;
+}
+
+.IndividualEvent .fixedHeader {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #303030;
+  width: calc(100% - 20px);
+  z-index: 1;
+}
+
+.IndividualEvent button {
+  background: none;
+  border: none;
+  color: blue;
+}
+
+.IndividualEvent .hamburgerNav {
+  display: flex;
+  margin: 20px 0px 0px 10px;
+}
+
+.IndividualEvent .holidayContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 20px 10px 0px 20px;
+  text-align: left;
+}
+
+.IndividualEvent h2 {
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.IndividualEvent h3 {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.IndividualEvent .activityButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.IndividualEvent .activeButtons .addToCalendarButton {
+  margin-right: 15px;
+}
+
+.IndividualEvent .divider {
+  width: 100%;
+  height: 1px;
+  background: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.IndividualEvent .holidayContentInfo {
+  margin-top: 110px;
+  text-align: left;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.IndividualEvent .indentedBackground {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #252525;
+  margin: 5px 0px;
+}
+
+.IndividualEvent h4 {
+  font-size: 14px;
+}
+
+.IndividualEvent .countriesList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.IndividualEvent .countryFlagList {
+  display: flex;
+}
+
+.IndividualEvent section {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.IndividualEvent p {
+  font-size: 13px;
+}
+
+.IndividualEvent .viewMore {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.IndividualEvent .holidayEventPictureList {
+  display: flex;
+}
+
+.IndividualEvent .resourceList {
+  font-size: 13px;
+}
+
+.IndividualEvent .headerExtraInfo {
+  color: #dedede;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.IndividualEvent .commentList li {
+  padding-bottom: 10px;
+}
+
+.IndividualEvent .commentList li:not(:last-of-type) {
+  border-bottom: 1px solid white;
+}
+
+.commentList li .postInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #606060;
+}
