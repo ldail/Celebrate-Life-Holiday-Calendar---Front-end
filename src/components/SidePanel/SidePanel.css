@@ -1,0 +1,120 @@
+.SidePanel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 50px);
+  position: fixed;
+  top: 50px;
+  left: 0px;
+  z-index: 2;
+  background-color: #303030;
+  width: 60%;
+  max-width: 300px;
+  min-width: 200px;
+  box-shadow: -10px 5px 10px 7px black;
+}
+
+.sidePanelContents {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  padding: 3px;
+}
+
+.returnFromNavigation {
+  width: 80px;
+  height: 80px;
+}
+
+.returnFromNavigation:hover {
+  cursor: pointer;
+}
+
+.navBox {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #525252;
+  align-items: center;
+  width: 100%;
+  margin: 1px;
+  padding: 10px;
+}
+
+.navBoxIcon {
+  width: 35px;
+  height: 35px;
+}
+
+.navBoxIcon-medium {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.navBoxIcon-small {
+  width: 10px;
+  height: 10px;
+}
+
+.solidCircleBlueBackground {
+  width: 30px;
+  height: 30px;
+  background-color: #42c0fb;
+  border-radius: 50%;
+}
+
+.worldCalendarOptions li {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.worldCalendarOption {
+  transform: rotate(180deg);
+  color: #42c0fb;
+  margin-right: 5px;
+}
+
+.todayIcon {
+  transform: rotate(270deg);
+  color: #42c0fb;
+}
+
+.myCalendarIcon {
+  color: #303030;
+  height: 28px;
+  width: 28px;
+  align-self: center;
+}
+
+.SidePanel h4 {
+  color: #42c0fb;
+  font-size: 22px;
+}
+
+.SidePanel h5 {
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.SidePanel .divider {
+  width: 95%;
+  height: 1px;
+  background-color: #525252;
+  margin: 15px 0px;
+}
+
+.worldCalendarIcon {
+  color: #303030;
+}
+
+.addHolidayButton {
+  background: none;
+  border: none;
+  color: #40c0fb;
+  font-weight: bold;
+  margin-top: 15px;
+}

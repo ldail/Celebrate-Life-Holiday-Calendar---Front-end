@@ -4,7 +4,7 @@ import {ReactComponent as HamburgerMenu} from '../../assets/hamburger-menu.svg';
 import { FAKE__EVENTS } from '../../assets/constants';
 import moment from 'moment';
 
-const IndividualEvent = ({currentEventId = null}) => {
+const IndividualEvent = ({setShowNavigation, currentEventId = null}) => {
   const eventInfo = FAKE__EVENTS[currentEventId] || {};
   const {name, month, day, countries, major, recur, description, pictures, resources, comments} = eventInfo;
 
@@ -16,7 +16,7 @@ const IndividualEvent = ({currentEventId = null}) => {
     <div className="IndividualEvent">
       <div className="fixedHeader">
         <div className="hamburgerNav">
-          <HamburgerMenu className="navMenuButton" />
+          <HamburgerMenu className="navMenuButton" onClick={() => setShowNavigation(true)} />
         </div>
         <div className="holidayContent">
           <h2>{name}</h2>

@@ -9,6 +9,7 @@ import {VIEWS, FAKE__EVENT_DATES, FAKE__EVENTS} from './assets/constants';
 import DayView from './views/DayView/DayView';
 import EventInMonthView from './components/EventInMonthView';
 import IndividualEvent from './views/IndividualEvent/IndividualEvent';
+import SidePanel from './components/SidePanel/SidePanel';
 
 function App() {
   const [currentView, setCurrentView] = useState({view: VIEWS.MONTH});
@@ -17,6 +18,7 @@ function App() {
   const [currentMonthEvents, setCurrentMonthEvents] = useState({});
   const [displayHeader, setDisplayHeader] = useState(true);
   const [currentEventId, setCurrentEventId] = useState(null);
+  const [showNavigation, setShowNavigation] = useState(true);
 
   useEffect(() => {
     const currentYearEvents = FAKE__EVENT_DATES[selectedYear] || {};
@@ -81,6 +83,7 @@ function App() {
         setSelectedMonth={setSelectedMonth}
         setSelectedYear={setSelectedYear}
         displayHeader={displayHeader}
+        setShowNavigation={setShowNavigation}
         />
     <main>
       {currentView.view === VIEWS.MONTH && 
@@ -102,7 +105,14 @@ function App() {
       }
       {currentView.view === VIEWS.EVENT &&
         <IndividualEvent 
-          currentEventId={currentEventId} />
+          setShowNavigation={setShowNavigation}
+          currentEventId={currentEventId} 
+        />
+      }
+      {showNavigation &&
+        <SidePanel 
+          setShowNavigation={setShowNavigation} 
+        />
       }
     </main>
     </div>
